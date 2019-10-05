@@ -20,12 +20,16 @@ Backend:
     - "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath="c:\data\db"
     - vagy: m.bat
     - konzol ablakot ne zárjuk be!
-2. Backend klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/rest-api-node-typescript-1.0.0
+2. Backend klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsBackend
 3. rest-api-node-typescript-1.0.0 mappa megnyitása VS Code-al
 4. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
 5. Backend (API) fordítása: "npm run build" konzol ablakból, vagy Ctrl-B
 6. Backend (API) indítása: "npm run start" konzol ablakból, vagy Ctrl-T (hiba esetén nodemon taskok kilövése: "npm run kill")
-7. Chrome indítása, https://localhost:3000 megnyitása, nem biztonságos oldal megnyitása, üzenet: {"message":"GET request success!"}
+7. Self Certificate engedélyezése HTTPS-hez (csak egyszer kell megcsinálni):
+    - Chrome indítása, https://localhost:3000 megnyitása
+    - nem biztonságos oldal megnyitása
+    - Ha sikerült: {"message":"GET request success!"} üzenet jelenik meg
+    - Edge, IE nem támogatja a Self Certificate oldalakat!
 
 Frontend:
 =========
