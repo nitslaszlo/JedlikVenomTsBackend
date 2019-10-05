@@ -30,11 +30,13 @@ Backend:
     - nem biztonságos oldal megnyitása
     - Ha sikerült: {"message":"GET request success!"} üzenet jelenik meg
     - Edge, IE nem támogatják a Self Certificate-el aláírt oldalakat!
+8. Nyomkövetéshez F5-el indítani a projektet
 
 Frontend:
 =========
-1. Backend klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsFrontend
+1. Frontend klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsFrontend
 2. JedlikVenomTsFrontend mappa megnyitása VS Code-al
 3. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
 4. Frontend fordítása, indítása: "npm run serve" a konzol ablakból, vagy Ctrl-B
 5. Chrome indítása, http://localhost:8080 megnyitása
+6. Nyomkövetéshez F5-el indítani a projektet
