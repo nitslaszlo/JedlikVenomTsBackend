@@ -1,8 +1,8 @@
 JedlikVenomTsBackend és JedlikVenomTsFrontend
 =============================================
 
-Projektben használt technológiák / megoldások:
-===============================================
+Projektekben használt technológiák / megoldások:
+=================================================
 1. Adatbázis kiszolgáló: MongoDB (https://www.mongodb.com/what-is-mongodb)
 2. Backend:
     - Express.js (https://expressjs.com/)

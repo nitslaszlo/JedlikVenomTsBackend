@@ -30,8 +30,7 @@
         "hu"
     ],
     "spellright.documentTypes": [
-        "latex",
-        "markdown"
+        "latex"
     ],
     "terminal.integrated.rendererType": "dom"
 }
