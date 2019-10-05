@@ -29,7 +29,7 @@ Backend:
     - Chrome indítása, https://localhost:3000 megnyitása
     - nem biztonságos oldal megnyitása
     - Ha sikerült: {"message":"GET request success!"} üzenet jelenik meg
-    - Edge, IE nem támogatja a Self Certificate oldalakat!
+    - Edge, IE nem támogatják a Self Certificate-el aláírt oldalakat!
 
 Frontend:
 =========
