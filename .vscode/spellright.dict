@@ -23,3 +23,4 @@ tsc
 wincred
 devtool
 --dbpath
+Axios

@@ -1,3 +1,35 @@
+JedlikVenomTsBackend és JedlikVenomTsFrontend
+=============================================
+
+Projektben használt technológiák / megoldások:
+===============================================
+1. Adatbázis kiszolgáló: MongoDB (https://www.mongodb.com/what-is-mongodb)
+2. Backend:
+    - Express.js (https://expressjs.com/)
+    - mongoose (https://mongoosejs.com/)
+    - Node.js (https://nodejs.org/en/about/)
+3. Backend development:
+    - TypeScript (http://www.typescriptlang.org/)
+    - TS Lint (https://palantir.github.io/tslint/)
+    - nodemon (https://nodemon.io/)
+4. Frontend:
+    - Vue.js (https://vuejs.org/)
+    - Node.js (https://nodejs.org/en/about/)
+    - Bootstrap (https://getbootstrap.com/)
+    - BootstrapVue (https://bootstrap-vue.js.org/)
+    - Vuex (https://vuex.vuejs.org/)
+    - Vue-router (https://router.vuejs.org/)
+    - Axios (https://github.com/axios/axios)
+5. Frontend development:
+    - TypeScript (http://www.typescriptlang.org/)
+    - TS Lint (https://palantir.github.io/tslint/)
+    - VUE CLI 3 (https://cli.vuejs.org/)
+
+Rövidítések:
+============
+VENoM - Vue.js, Express, Node.js, MongoDB
+Ts - Typescript
+
 Fejlesztői eszközök, MongoDB szerver:
 ======================================
 1. Google Chrome telepítése
@@ -20,11 +52,11 @@ Backend:
     - "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath="c:\data\db"
     - vagy: m.bat
     - konzol ablakot ne zárjuk be!
-2. Backend klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsBackend
+2. Backend projekt klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsBackend
 3. JedlikVenomTsBackend mappa megnyitása VS Code-al
 4. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
-5. Backend (API) fordítása: "npm run build" a konzol ablakból, vagy Ctrl-B
-6. Backend (API) indítása: "npm run start" a konzol ablakból, vagy Ctrl-T (hiba esetén nodemon task(ok) kilövése: "npm run kill")
+5. Backend (API) projekt fordítása: "npm run build" a konzol ablakból, vagy Ctrl-B
+6. Backend (API) projekt indítása: "npm run start" a konzol ablakból, vagy Ctrl-T (hiba esetén nodemon task(ok) kilövése: "npm run kill")
 7. Self Certificate engedélyezése HTTPS-hez (csak egyszer kell megcsinálni):
     - Chrome indítása, https://localhost:3000 megnyitása
     - nem biztonságos oldal megnyitása
@@ -34,9 +66,9 @@ Backend:
 
 Frontend:
 =========
-1. Frontend klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsFrontend
+1. Frontend projekt klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsFrontend
 2. JedlikVenomTsFrontend mappa megnyitása VS Code-al
 3. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
-4. Frontend fordítása, indítása: "npm run serve" a konzol ablakból, vagy Ctrl-B
+4. Frontend projekt fordítása, indítása: "npm run serve" a konzol ablakból, vagy Ctrl-B
 5. Chrome indítása, http://localhost:8080 megnyitása
 6. Nyomkövetéshez F5-el indítani a projektet
