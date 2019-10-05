@@ -21,10 +21,10 @@ Backend:
     - vagy: m.bat
     - konzol ablakot ne zárjuk be!
 2. Backend klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsBackend
-3. rest-api-node-typescript-1.0.0 mappa megnyitása VS Code-al
+3. JedlikVenomTsBackend mappa megnyitása VS Code-al
 4. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
-5. Backend (API) fordítása: "npm run build" konzol ablakból, vagy Ctrl-B
-6. Backend (API) indítása: "npm run start" konzol ablakból, vagy Ctrl-T (hiba esetén nodemon taskok kilövése: "npm run kill")
+5. Backend (API) fordítása: "npm run build" a konzol ablakból, vagy Ctrl-B
+6. Backend (API) indítása: "npm run start" a konzol ablakból, vagy Ctrl-T (hiba esetén nodemon task(ok) kilövése: "npm run kill")
 7. Self Certificate engedélyezése HTTPS-hez (csak egyszer kell megcsinálni):
     - Chrome indítása, https://localhost:3000 megnyitása
     - nem biztonságos oldal megnyitása
@@ -34,7 +34,7 @@ Backend:
 Frontend:
 =========
 1. Backend klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsFrontend
-2. JedlikVuejsBootstrapvueVuexAxiosStarter mappa megnyitása VS Code-al
+2. JedlikVenomTsFrontend mappa megnyitása VS Code-al
 3. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
-4. Frontend fordítása, indítása: "npm run serve" konzol ablakból, vagy Ctrl-B
+4. Frontend fordítása, indítása: "npm run serve" a konzol ablakból, vagy Ctrl-B
 5. Chrome indítása, http://localhost:8080 megnyitása
