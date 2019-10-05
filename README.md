@@ -33,7 +33,7 @@ Backend:
 
 Frontend:
 =========
-1. Backend klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVuejsBootstrapvueVuexAxiosStarter
+1. Backend klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsFrontend
 2. JedlikVuejsBootstrapvueVuexAxiosStarter mappa megnyitása VS Code-al
 3. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
 4. Frontend fordítása, indítása: "npm run serve" konzol ablakból, vagy Ctrl-B
