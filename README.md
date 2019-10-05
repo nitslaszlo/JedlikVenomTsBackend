@@ -48,11 +48,11 @@ Fejlesztői eszközök, MongoDB szerver:
 
 Backend:
 ========
-1. MongoDB szerver indítása:
+1. Backend projekt klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsBackend
+2. MongoDB szerver indítása:
     - "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath="c:\data\db"
-    - vagy: m.bat
+    - vagy: m.bat a projekt rootból
     - konzol ablakot ne zárjuk be!
-2. Backend projekt klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsBackend
 3. JedlikVenomTsBackend mappa megnyitása VS Code-al
 4. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
 5. Backend (API) projekt fordítása: "npm run build" a konzol ablakból, vagy Ctrl-B
