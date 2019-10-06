@@ -34,6 +34,7 @@ Fejlesztői eszközök, MongoDB szerver:
 ======================================
 1. Google Chrome telepítése
 2. Vue.js devtool Chrome kiterjesztés telepítése: https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd
+    (nyomkövetésnél (F5) indított Chrome-ba is telepíteni kell)
 3. Node.js LTS telepítése (https://nodejs.org/en/download/)
 4. Git for Windows telepítése (https://nodejs.org/en/download/)
 5. npm frissítése parancssorból (cmd.exe): "npm i -g npm"
@@ -44,7 +45,7 @@ Fejlesztői eszközök, MongoDB szerver:
    - Alapértelmezett mappába: C:\Program Files\MongoDB\...
 8. MongoDB Compass Community Edition Stable telepítése (https://www.mongodb.com/download-center/compass)
 9. Postman telepítése (https://www.getpostman.com/downloads/)
-10. Mappák létrehozása (ide kerül a mongo adatbázis): C:\data\db
+10. Mappák létrehozása (ide kerül majd a mongo adatbázis): C:\data\db
 
 Backend:
 ========
@@ -52,17 +53,18 @@ Backend:
 2. MongoDB szerver indítása:
     - "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath="c:\data\db"
     - vagy: m.bat a projekt rootból
-    - konzol ablakot ne zárjuk be!
+    - konzol ablakot ne zárjuk be a fejlesztés/tesztelés alatt!
 3. JedlikVenomTsBackend mappa megnyitása VS Code-al
 4. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
 5. Backend (API) projekt fordítása: "npm run build" a konzol ablakból, vagy Ctrl-B
 6. Backend (API) projekt indítása: "npm run start" a konzol ablakból, vagy Ctrl-T (hiba esetén nodemon task(ok) kilövése: "npm run kill")
-7. Self Certificate engedélyezése HTTPS-hez (csak egyszer kell megcsinálni):
+7. Chrome Self Certificate engedélyezése HTTPS-hez (csak egyszer kell megcsinálni):
     - Chrome indítása, https://localhost:3000 megnyitása
     - nem biztonságos oldal megnyitása
     - Ha sikerült: {"message":"GET request success!"} üzenet jelenik meg
     - Edge, IE nem támogatják a Self Certificate-el aláírt oldalakat!
-8. Nyomkövetéshez F5-el indítani a projektet
+8. Backend API tesztelése Postman/Compass programokkal
+9. Nyomkövetéshez F5-el lehet indítani a projektet
 
 Frontend:
 =========
