@@ -72,5 +72,4 @@ Frontend:
 2. JedlikVenomTsFrontend mappa megnyitása VS Code-al
 3. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
 4. Frontend projekt fordítása, indítása: "npm run serve" a konzol ablakból, vagy Ctrl-B
-5. Chrome indítása, http://localhost:8080 megnyitása
-6. Nyomkövetéshez F5-el indítani a projektet
+5. Chrome indítása, http://localhost:8080 megnyitása, vagy Nyomkövetéshez F5-el lehet indítani a projektet
