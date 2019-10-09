@@ -56,9 +56,9 @@ Backend:
     - konzol ablakot ne zárjuk be a fejlesztés/tesztelés alatt!
 3. JedlikVenomTsBackend mappa megnyitása VS Code-al
 4. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
-5. Backend (API) projekt fordítása: "npm run build" a konzol ablakból, vagy Ctrl-B
-6. Backend (API) projekt indítása: "npm run start" a konzol ablakból, vagy Ctrl-T (hiba esetén nodemon task(ok) kilövése: "npm run kill")
-7. Chrome Self Certificate engedélyezése HTTPS-hez (csak egyszer kell megcsinálni):
+5. Backend (API) projekt fordítása: "npm run build" a konzol ablakból, vagy Ctrl-Shift-B
+6. Backend (API) projekt indítása: "npm run start" a konzol ablakból, vagy Ctrl-Shift-T (hiba esetén beragadt nodemon task(ok) kilövése: "npm run kill")
+7. Chrome Self Certificate engedélyezése HTTPS-hez (csak Network Error kell megcsinálni):
     - Chrome indítása, https://localhost:3000 megnyitása
     - nem biztonságos oldal megnyitása
     - Ha sikerült: {"message":"GET request success!"} üzenet jelenik meg
@@ -71,5 +71,5 @@ Frontend:
 1. Frontend projekt klónozása parancssorból (cmd.exe): git clone https://github.com/nitslaszlo/JedlikVenomTsFrontend
 2. JedlikVenomTsFrontend mappa megnyitása VS Code-al
 3. Node.js csomagok telepítése: Ctrl-ö (VS Code konzol ablak megnyitása), majd "npm i"
-4. Frontend projekt fordítása, indítása: "npm run serve" a konzol ablakból, vagy Ctrl-B
+4. Frontend projekt fordítása, indítása: "npm run serve" a konzol ablakból, vagy Ctrl-Shift-B
 5. Chrome indítása, http://localhost:8080 megnyitása, vagy Nyomkövetéshez F5-el lehet indítani a projektet
