@@ -19,6 +19,10 @@
         "trailing-comma": [true, {
             "multiline": "never",
             "singleline": "never"
-        }]
+        }],
+         "variable-name": [
+             true,
+             "ban-keywords"
+         ]
     }
 }
