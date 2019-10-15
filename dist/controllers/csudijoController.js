@@ -26,6 +26,17 @@ class CsudijoController {
             }
         });
     }
+    getTopFoods(req, res) {
+        mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).limit(1).exec((err, food) => {
+            if (err) {
+                res.send(err);
+            }
+            else {
+                const max = food[0].numberOfVote;
+                res.json(food);
+            }
+        });
+    }
     getFoodWithID(req, res) {
         mongooseCsudijo.findById(req.params.foodId, (err, food) => {
             if (err) {

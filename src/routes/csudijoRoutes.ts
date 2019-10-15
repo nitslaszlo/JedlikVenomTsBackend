@@ -20,6 +20,18 @@ export class CsudijoRoutes {
                 next();
             }, this.csudijoController.addNewFood);
 
+        app.route("/csudijobest")
+            .get((req: Request, res: Response, next: NextFunction) => {
+                console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
+                next();
+            }, this.csudijoController.getTopFoods)
+
+            // POST endpoint
+            .post((req: Request, res: Response, next: NextFunction) => {
+                console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
+                next();
+            }, this.csudijoController.addNewFood);
+
         // Contact detail
         app.route("/csudijo/:foodId")
             // get specific food, pl.: GET http://localhost:3000/csudijo/5d7a971dd9740e07b8bc725c

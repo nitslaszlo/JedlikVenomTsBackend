@@ -15,6 +15,15 @@ class CsudijoRoutes {
             console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
             next();
         }, this.csudijoController.addNewFood);
+        app.route("/csudijobest")
+            .get((req, res, next) => {
+            console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
+            next();
+        }, this.csudijoController.getTopFoods)
+            .post((req, res, next) => {
+            console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
+            next();
+        }, this.csudijoController.addNewFood);
         app.route("/csudijo/:foodId")
             .get((req, res, next) => {
             console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);

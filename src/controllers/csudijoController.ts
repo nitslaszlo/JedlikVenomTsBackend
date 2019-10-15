@@ -27,6 +27,19 @@ export class CsudijoController {
         });
     }
 
+    public getTopFoods(req: Request, res: Response) {
+        mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).limit(1).exec((err, food) => {
+            if (err) {
+                res.send(err);
+            } else {
+                const max = (food[0] as any).numberOfVote;
+                // Melyek azok az ételek, ahol a numberOfVote == max -al?
+                // mongooseCsudijo.find({ ???????? });
+                res.json(food);
+            }
+        });
+    }
+
     public getFoodWithID(req: Request, res: Response) {
         mongooseCsudijo.findById(req.params.foodId, (err, food) => {
             if (err) {
