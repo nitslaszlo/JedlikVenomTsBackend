@@ -32,8 +32,20 @@ class CsudijoController {
                 res.send(err);
             }
             else {
-                const max = food[0].numberOfVote;
-                res.json(food);
+                if (food.length > 0) {
+                    const max = food[0].numberOfVote;
+                    mongooseCsudijo.find({ numberOfVote: max }, (error, foods) => {
+                        if (error) {
+                            res.send(error);
+                        }
+                        else {
+                            res.json(foods);
+                        }
+                    });
+                }
+                else {
+                    res.json({ error: "No food!" });
+                }
             }
         });
     }

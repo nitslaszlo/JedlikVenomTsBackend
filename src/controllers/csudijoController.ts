@@ -32,10 +32,18 @@ export class CsudijoController {
             if (err) {
                 res.send(err);
             } else {
-                const max = (food[0] as any).numberOfVote;
-                // Melyek azok az ételek, ahol a numberOfVote == max -al?
-                // mongooseCsudijo.find({ ???????? });
-                res.json(food);
+                if (food.length > 0) {
+                    const max = (food[0] as any).numberOfVote;
+                    mongooseCsudijo.find({ numberOfVote: max }, (error, foods) => {
+                        if (error) {
+                            res.send(error);
+                        } else {
+                            res.json(foods);
+                        }
+                    });
+                } else { // Ha még nincs étel a kollekcióban:
+                    res.json({ error: "No food!" });
+                }
             }
         });
     }
