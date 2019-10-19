@@ -24,13 +24,13 @@ export class CsudijoRoutes {
             .get((req: Request, res: Response, next: NextFunction) => {
                 console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
                 next();
-            }, this.csudijoController.getTopFoods)
+            }, this.csudijoController.getTopFoods);
 
-            // POST endpoint
-            .post((req: Request, res: Response, next: NextFunction) => {
-                console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
+        app.route("/csudijo/page/:page/paginate/:paginate")
+            .get((req: Request, res: Response, next: NextFunction) => {
+                console.log(`Reques type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
                 next();
-            }, this.csudijoController.addNewFood);
+            }, this.csudijoController.getPageOfFoods);
 
         // Contact detail
         app.route("/csudijo/:foodId")

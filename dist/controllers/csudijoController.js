@@ -26,6 +26,25 @@ class CsudijoController {
             }
         });
     }
+    getPageOfFoods(req, res) {
+        let paginate = 5;
+        let page = 0;
+        if (req.params.paginate) {
+            paginate = parseInt(req.params.paginate, 10);
+        }
+        if (req.params.page) {
+            page = parseInt(req.params.page, 10) - 1;
+        }
+        mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).skip(page * paginate).limit(paginate)
+            .exec((err, foods) => {
+            if (err) {
+                res.send(err);
+            }
+            else {
+                res.json(foods);
+            }
+        });
+    }
     getTopFoods(req, res) {
         mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).limit(1).exec((err, food) => {
             if (err) {
@@ -39,7 +58,7 @@ class CsudijoController {
                             res.send(error);
                         }
                         else {
-                            res.json(foods);
+                            res.json(foods.map((a) => a.foodName));
                         }
                     });
                 }

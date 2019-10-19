@@ -27,6 +27,25 @@ export class CsudijoController {
         });
     }
 
+    public getPageOfFoods(req: Request, res: Response) {
+        let paginate: number = 5;
+        let page: number = 0;
+        if (req.params.paginate) {
+            paginate = parseInt(req.params.paginate, 10);
+        }
+        if (req.params.page) {
+            page = parseInt(req.params.page, 10) - 1;
+        }
+        mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).skip(page * paginate).limit(paginate)
+            .exec((err, foods) => {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.json(foods);
+                }
+            });
+    }
+
     public getTopFoods(req: Request, res: Response) {
         mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).limit(1).exec((err, food) => {
             if (err) {
@@ -38,7 +57,7 @@ export class CsudijoController {
                         if (error) {
                             res.send(error);
                         } else {
-                            res.json(foods);
+                            res.json(foods.map((a: any) => a.foodName)); // csak az ételek nevét
                         }
                     });
                 } else { // Ha még nincs étel a kollekcióban:
