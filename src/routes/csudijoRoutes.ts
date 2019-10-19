@@ -24,13 +24,7 @@ export class CsudijoRoutes {
             .get((req: Request, res: Response, next: NextFunction) => {
                 console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
                 next();
-            }, this.csudijoController.getTopFoods)
-
-            // POST endpoint
-            .post((req: Request, res: Response, next: NextFunction) => {
-                console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
-                next();
-            }, this.csudijoController.addNewFood);
+            }, this.csudijoController.getTopFoods);
 
         // Contact detail
         app.route("/csudijo/:foodId")
