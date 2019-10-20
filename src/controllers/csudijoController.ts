@@ -17,6 +17,16 @@ export class CsudijoController {
         });
     }
 
+    public getNumberOfFoods(req: Request, res: Response) {
+        mongooseCsudijo.countDocuments({}, (err, count) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.json(count);
+            }
+        });
+    }
+
     public getAllFoods(req: Request, res: Response) {
         mongooseCsudijo.find({}, (err, food) => {
             if (err) {
@@ -28,15 +38,15 @@ export class CsudijoController {
     }
 
     public getPageOfFoods(req: Request, res: Response) {
-        let paginate: number = 5;
+        let perPage: number = 5;
         let page: number = 0;
-        if (req.params.paginate) {
-            paginate = parseInt(req.params.paginate, 10);
+        if (req.params.perPage) {
+            perPage = parseInt(req.params.perPage, 10);
         }
         if (req.params.page) {
             page = parseInt(req.params.page, 10) - 1;
         }
-        mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).skip(page * paginate).limit(paginate)
+        mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).skip(page * perPage).limit(perPage)
             .exec((err, foods) => {
                 if (err) {
                     res.send(err);
@@ -57,7 +67,8 @@ export class CsudijoController {
                         if (error) {
                             res.send(error);
                         } else {
-                            res.json(foods.map((a: any) => a.foodName)); // csak az ételek nevét
+                            // adatforgalom minimalizálása feladat
+                            res.json(foods.map((a: any) => a.foodName)); // csak az ételek nevét küldjük át
                         }
                     });
                 } else { // Ha még nincs étel a kollekcióban:

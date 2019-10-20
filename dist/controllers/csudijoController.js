@@ -16,6 +16,16 @@ class CsudijoController {
             }
         });
     }
+    getNumberOfFoods(req, res) {
+        mongooseCsudijo.countDocuments({}, (err, count) => {
+            if (err) {
+                res.send(err);
+            }
+            else {
+                res.json(count);
+            }
+        });
+    }
     getAllFoods(req, res) {
         mongooseCsudijo.find({}, (err, food) => {
             if (err) {
@@ -27,15 +37,15 @@ class CsudijoController {
         });
     }
     getPageOfFoods(req, res) {
-        let paginate = 5;
+        let perPage = 5;
         let page = 0;
-        if (req.params.paginate) {
-            paginate = parseInt(req.params.paginate, 10);
+        if (req.params.perPage) {
+            perPage = parseInt(req.params.perPage, 10);
         }
         if (req.params.page) {
             page = parseInt(req.params.page, 10) - 1;
         }
-        mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).skip(page * paginate).limit(paginate)
+        mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).skip(page * perPage).limit(perPage)
             .exec((err, foods) => {
             if (err) {
                 res.send(err);

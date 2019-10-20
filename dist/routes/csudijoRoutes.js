@@ -20,9 +20,14 @@ class CsudijoRoutes {
             console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
             next();
         }, this.csudijoController.getTopFoods);
-        app.route("/csudijo/page/:page/paginate/:paginate")
+        app.route("/csudijo/count")
             .get((req, res, next) => {
-            console.log(`Reques type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
+            console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
+            next();
+        }, this.csudijoController.getNumberOfFoods);
+        app.route("/csudijo/page/:page/perPage/:perPage")
+            .get((req, res, next) => {
+            console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
             next();
         }, this.csudijoController.getPageOfFoods);
         app.route("/csudijo/:foodId")
