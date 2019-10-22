@@ -19,11 +19,7 @@ class CsudijoRoutes {
             .get((req, res, next) => {
             console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
             next();
-        }, this.csudijoController.getTopFoods)
-            .post((req, res, next) => {
-            console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
-            next();
-        }, this.csudijoController.addNewFood);
+        }, this.csudijoController.getTopFoods);
         app.route("/csudijo/:foodId")
             .get((req, res, next) => {
             console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
