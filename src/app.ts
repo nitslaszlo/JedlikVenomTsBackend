@@ -23,17 +23,22 @@ class App {
     }
 
     private expressConfig(): void {
+        const whitelist = ["http://localhost:8080", "http://127.0.0.1:8080"];
+        const corsOptions: CorsOptions = {
+            origin: (origin, callback) => {
+                if (whitelist.indexOf(origin) !== -1 || !origin) {
+                    callback(null, true);
+                } else {
+                    callback(new Error("Not allowed by CORS!!!"), false);
+                }
+            },
+            credentials: true
+        };
+        this.app.use(cors(corsOptions));
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));
         // serving static files
         this.app.use(express.static("public"));
-
-        this.app.use((req, res, next) => {
-            res.header("Access-Control-Allow-Origin", "*");
-            res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Authorization, Content-Length, Content-Type, Accept");
-            next();
-        });
     }
 
     private mongoSetup(): void {
