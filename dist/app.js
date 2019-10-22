@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const body_parser_1 = tslib_1.__importDefault(require("body-parser"));
+const cors_1 = tslib_1.__importDefault(require("cors"));
 const express_1 = tslib_1.__importDefault(require("express"));
 const mongoose_1 = tslib_1.__importDefault(require("mongoose"));
 const crmRoutes_1 = require("./routes/crmRoutes");
@@ -18,15 +19,22 @@ class App {
         this.mongoSetup();
     }
     expressConfig() {
+        const whitelist = ["http://localhost:8080", "http://127.0.0.1:8080"];
+        const corsOptions = {
+            origin: (origin, callback) => {
+                if (whitelist.indexOf(origin) !== -1 || !origin) {
+                    callback(null, true);
+                }
+                else {
+                    callback(new Error("Not allowed by CORS!!!"), false);
+                }
+            },
+            credentials: true
+        };
+        this.app.use(cors_1.default(corsOptions));
         this.app.use(body_parser_1.default.json());
         this.app.use(body_parser_1.default.urlencoded({ extended: false }));
         this.app.use(express_1.default.static("public"));
-        this.app.use((req, res, next) => {
-            res.header("Access-Control-Allow-Origin", "*");
-            res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Authorization, Content-Length, Content-Type, Accept");
-            next();
-        });
     }
     mongoSetup() {
         const options = {
