@@ -24,18 +24,22 @@ class App {
     }
 
     private expressConfig(): void {
-        const whitelist = ["http://localhost:8080", "http://127.0.0.1:8080", "http://192.168.1.68:8080"];
-        const corsOptions: CorsOptions = {
-            origin: (origin, callback) => {
-                if (whitelist.indexOf(origin) !== -1 || !origin) {
-                    callback(null, true);
-                } else {
-                    callback(new Error("Not allowed by CORS!!!"), false);
-                }
-            },
-            credentials: true
-        };
-        this.app.use(cors(corsOptions));
+        // With credentials: (Set "withCredentials: false" in frontend too)
+        // ================================================================
+        // const whitelist = ["http://localhost:8080", "http://127.0.0.1:8080", "http://192.168.1.68:8080"];
+        // const corsOptions: CorsOptions = {
+        //     origin: (origin, callback) => {
+        //         // console.log(`origin ${origin}`);
+        //         if (whitelist.indexOf(origin) !== -1 || !origin) {
+        //             callback(null, true);
+        //         } else {
+        //             callback(new Error("Not allowed by CORS!!!"), false);
+        //         }
+        //     },
+        //     credentials: true
+        // };
+        // this.app.use(cors(corsOptions));
+        this.app.use(cors());
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));
         // serving static files
