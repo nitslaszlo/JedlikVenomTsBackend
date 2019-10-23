@@ -20,7 +20,6 @@ export const csudijoSchema = new mongoose.Schema({
         set: (v: any) => Math.round(v)
     },
     pictureUrl: {
-        required: "Kérem adjan meg a kép elérési utvonalát!",
         validate: {
             validator: (v: any) => {
                 return /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/.test(v);
@@ -31,8 +30,8 @@ export const csudijoSchema = new mongoose.Schema({
         unique: true
     },
     description: {
-        required: "Kérem adja meg a étel leírását!",
-        type: String
+        type: String,
+        unique: true
     },
     created_date: {
         default: Date.now,

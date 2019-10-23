@@ -20,6 +20,20 @@ exports.csudijoSchema = new mongoose_1.default.Schema({
         get: (v) => Math.round(v),
         set: (v) => Math.round(v)
     },
+    pictureUrl: {
+        validate: {
+            validator: (v) => {
+                return /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/.test(v);
+            },
+            msg: "Nem megfelelő az URL formátuma!"
+        },
+        type: String,
+        unique: true
+    },
+    description: {
+        type: String,
+        unique: true
+    },
     created_date: {
         default: Date.now,
         type: Date
