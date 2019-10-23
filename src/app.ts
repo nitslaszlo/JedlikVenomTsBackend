@@ -1,5 +1,6 @@
 import bodyParser from "body-parser";
-import cors, { CorsOptions } from "cors";
+import cors from "cors";
+// import cors, { CorsOptions } from "cors";
 import express from "express";
 import mongoose from "mongoose";
 import { CrmRoutes } from "./routes/crmRoutes";
@@ -23,12 +24,12 @@ class App {
     }
 
     private expressConfig(): void {
-        // With cresentials: (Set "withCredentials: false" in frontend too)
+        // With credentials: (Set "withCredentials: false" in frontend too)
         // ================================================================
         // const whitelist = ["http://localhost:8080", "http://127.0.0.1:8080", "http://192.168.1.68:8080"];
         // const corsOptions: CorsOptions = {
         //     origin: (origin, callback) => {
-        //         console.log(`origin ${origin}`);
+        //         // console.log(`origin ${origin}`);
         //         if (whitelist.indexOf(origin) !== -1 || !origin) {
         //             callback(null, true);
         //         } else {
