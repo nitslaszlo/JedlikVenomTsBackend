@@ -16,9 +16,6 @@ const httpsOptions: https.ServerOptions = {
     key: fs.readFileSync("./config/key.pem")
 };
 
-// HTTPS?
-// rocess.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
 // simple HTTP:
 // app.listen(PORT, () => {
 //     console.log(`Express server listening on port: ${PORT}, if you get an error, check your mongoDB connection.`);
