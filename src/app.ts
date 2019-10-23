@@ -1,5 +1,6 @@
 import bodyParser from "body-parser";
-import cors, { CorsOptions } from "cors";
+import cors from "cors";
+// import cors, { CorsOptions } from "cors";
 import express from "express";
 import mongoose from "mongoose";
 import { CrmRoutes } from "./routes/crmRoutes";
