@@ -20,7 +20,7 @@
         "**/tslint.json": false,
         "**/package-lock.json": true,
         "**/dist": true,
-        "**/public": true,
+        "**/public": false,
         "**/node_modules": true,
         "**/*.js.map": true,
         "**/*.npmrc": true

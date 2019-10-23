@@ -24,8 +24,10 @@ class App {
     }
 
     private expressConfig(): void {
-        // With credentials: (Set "withCredentials: false" in frontend too)
-        // ================================================================
+        // Ha szeretnéd vezérelni, hogy a backend API-t milyen ip-ről érheti el a frontend alkalmazás:
+        // ============================================================================================
+        // Állítsad be a "withCredentials: true" opciót a frontend oldalon is (CsudijoModule.ts)
+        // Vegyed ki a megjegyzésből a következő sorokat:
         // const whitelist = ["http://localhost:8080", "http://127.0.0.1:8080", "http://192.168.1.68:8080"];
         // const corsOptions: CorsOptions = {
         //     origin: (origin, callback) => {
@@ -39,7 +41,8 @@ class App {
         //     credentials: true
         // };
         // this.app.use(cors(corsOptions));
-        this.app.use(cors());
+        this.app.use(cors()); // ezt mehet majd megjegyzésbe
+
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));
         // serving static files
