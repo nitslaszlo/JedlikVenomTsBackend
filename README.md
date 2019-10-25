@@ -11,6 +11,7 @@ Projektekben használt technológiák / megoldások:
 3. Backend development:
     - TypeScript (http://www.typescriptlang.org/)
     - ESLint (https://eslint.org/)
+    - Prettier (https://prettier.io/)
     - nodemon (https://nodemon.io/)
 4. Frontend:
     - Vue.js (https://vuejs.org/)
@@ -23,6 +24,7 @@ Projektekben használt technológiák / megoldások:
 5. Frontend development:
     - TypeScript (http://www.typescriptlang.org/)
     - ESLint (https://eslint.org/)
+    - Prettier (https://prettier.io/)
     - VUE CLI 3 (https://cli.vuejs.org/)
 
 Rövidítések:
