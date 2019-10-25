@@ -1,26 +1,26 @@
 module.exports = {
-  "env": {
+  env: {
     "browser": true,
     "es6": true,
     "node": true
   },
-  "extends": [
+  extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended"
   ],
-  "globals": {
+  globals: {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
+  plugins: [
     "@typescript-eslint"
   ],
-  "rules": {
+  rules: {
     "semi": [
       "error",
       "always"

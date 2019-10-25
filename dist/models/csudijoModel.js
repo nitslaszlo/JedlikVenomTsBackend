@@ -34,7 +34,7 @@ exports.csudijoSchema = new mongoose_1.default.Schema({
         type: String,
         unique: true
     },
-    created_date: {
+    createdDate: {
         default: Date.now,
         type: Date
     }
