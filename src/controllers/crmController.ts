@@ -6,7 +6,7 @@ const mongooseContact = mongoose.model("Contact", contactSchema);
 
 export class ContactController {
 
-    public addNewContact(req: Request, res: Response) {
+    public addNewContact(req: Request, res: Response): void {
         const newContact = new mongooseContact(req.body);
         newContact.save((err, contact) => {
             if (err) {
@@ -16,7 +16,7 @@ export class ContactController {
         });
     }
 
-    public getContacts(req: Request, res: Response) {
+    public getContacts(req: Request, res: Response): void {
         mongooseContact.find({}, (err, contact) => {
             if (err) {
                 res.send(err);
@@ -25,7 +25,7 @@ export class ContactController {
         });
     }
 
-    public getContactWithID(req: Request, res: Response) {
+    public getContactWithID(req: Request, res: Response): void {
         mongooseContact.findById(req.params.contactId, (err, contact) => {
             if (err) {
                 res.send(err);
@@ -34,7 +34,7 @@ export class ContactController {
         });
     }
 
-    public updateContact(req: Request, res: Response) {
+    public updateContact(req: Request, res: Response): void{
         const updateOptions: mongoose.QueryFindOneAndUpdateOptions = {
             new: true, // return the modified document
             runValidators: true // runs update validators on this command
@@ -47,7 +47,7 @@ export class ContactController {
         });
     }
 
-    public deleteContact(req: Request, res: Response) {
+    public deleteContact(req: Request, res: Response): void {
         mongooseContact.deleteOne({ _id: req.params.contactId }, (err) => {
             if (err) {
                 res.send(err);

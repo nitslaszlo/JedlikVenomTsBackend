@@ -6,7 +6,7 @@ const mongooseCsudijo = mongoose.model("Csudijo", csudijoSchema);
 
 export class CsudijoController {
 
-    public addNewFood(req: Request, res: Response) {
+    public addNewFood(req: Request, res: Response): void {
         const newFood = new mongooseCsudijo(req.body);
         newFood.save((err, food) => {
             if (err) {
@@ -17,7 +17,7 @@ export class CsudijoController {
         });
     }
 
-    public getAllFoods(req: Request, res: Response) {
+    public getAllFoods(req: Request, res: Response): void {
         mongooseCsudijo.find({}, (err, food) => {
             if (err) {
                 res.send(err);
@@ -27,7 +27,7 @@ export class CsudijoController {
         });
     }
 
-    public getTopFoods(req: Request, res: Response) {
+    public getTopFoods(req: Request, res: Response): void {
         mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).limit(1).exec((err, food) => {
             if (err) {
                 res.send(err);
@@ -48,7 +48,7 @@ export class CsudijoController {
         });
     }
 
-    public getFoodWithID(req: Request, res: Response) {
+    public getFoodWithID(req: Request, res: Response): void {
         mongooseCsudijo.findById(req.params.foodId, (err, food) => {
             if (err) {
                 res.send(err);
@@ -58,7 +58,7 @@ export class CsudijoController {
         });
     }
 
-    public updateFood(req: Request, res: Response) {
+    public updateFood(req: Request, res: Response): void {
         const updateOptions: mongoose.QueryFindOneAndUpdateOptions = {
             new: true, // return the modified document
             runValidators: true // runs update validators on this command
@@ -72,7 +72,7 @@ export class CsudijoController {
         });
     }
 
-    public deleteFood(req: Request, res: Response) {
+    public deleteFood(req: Request, res: Response): void {
         mongooseCsudijo.deleteOne({ _id: req.params.foodId }, (err) => {
             if (err) {
                 res.send(err);

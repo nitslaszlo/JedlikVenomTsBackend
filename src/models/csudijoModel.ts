@@ -16,8 +16,8 @@ export const csudijoSchema = new mongoose.Schema({
         default: 0,
         min: 0,
         type: Number,
-        get: (v: any) => Math.round(v),
-        set: (v: any) => Math.round(v)
+        get: (v: number) => Math.round(v),
+        set: (v: number) => Math.round(v)
     },
     created_date: {
         default: Date.now,

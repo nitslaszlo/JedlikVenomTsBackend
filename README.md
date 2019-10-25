@@ -10,7 +10,7 @@ Projektekben használt technológiák / megoldások:
     - Node.js (https://nodejs.org/en/about/)
 3. Backend development:
     - TypeScript (http://www.typescriptlang.org/)
-    - TS Lint (https://palantir.github.io/tslint/)
+    - ESLint (https://eslint.org/)
     - nodemon (https://nodemon.io/)
 4. Frontend:
     - Vue.js (https://vuejs.org/)
@@ -22,7 +22,7 @@ Projektekben használt technológiák / megoldások:
     - Axios (https://github.com/axios/axios)
 5. Frontend development:
     - TypeScript (http://www.typescriptlang.org/)
-    - TS Lint (https://palantir.github.io/tslint/)
+    - ESLint (https://eslint.org/)
     - VUE CLI 3 (https://cli.vuejs.org/)
 
 Rövidítések:
