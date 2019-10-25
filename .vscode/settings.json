@@ -1,10 +1,29 @@
 {
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": false,
     "editor.minimap.enabled": false,
-    "editor.multiCursorModifier": "ctrlCmd",
     "extensions.ignoreRecommendations": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.enable": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+        "javascript",
+        {
+            "language": "typescript",
+            "autoFix": true
+        }
+    ],
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": false,
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": false,
+    },
+    "[typescript]": {
+        "editor.formatOnSave": false,
+    },
+    "[typescriptreact]": {
+        "editor.formatOnSave": false,
+    },
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "git.autofetch": true,

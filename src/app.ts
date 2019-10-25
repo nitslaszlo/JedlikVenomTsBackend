@@ -11,7 +11,7 @@ class App {
     public app: express.Application;
     public crmRoutePrv: CrmRoutes = new CrmRoutes();
     public csudijoRoutePrv: CsudijoRoutes = new CsudijoRoutes();
-    public mongoUrl: string = "mongodb://localhost/CRMdb";
+    public mongoUrl = "mongodb://localhost/CRMdb";
     // URL with auth
     // public mongoUrl: string = 'mongodb://nits:pwd123@localhost:27017/CRMdb';
 

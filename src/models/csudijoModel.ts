@@ -33,7 +33,7 @@ export const csudijoSchema = new mongoose.Schema({
         type: String,
         unique: true
     },
-    created_date: {
+    createdDate: {
         default: Date.now,
         type: Date
     }
