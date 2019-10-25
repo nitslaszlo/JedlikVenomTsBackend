@@ -6,7 +6,8 @@ class CsudijoRoutes {
         this.csudijoController = new csudijoController_1.CsudijoController();
     }
     routes(app) {
-        app.route("/csudijo")
+        app
+            .route("/csudijo")
             .get((req, res, next) => {
             console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
             next();
@@ -15,12 +16,12 @@ class CsudijoRoutes {
             console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
             next();
         }, this.csudijoController.addNewFood);
-        app.route("/csudijobest")
-            .get((req, res, next) => {
+        app.route("/csudijobest").get((req, res, next) => {
             console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
             next();
         }, this.csudijoController.getTopFoods);
-        app.route("/csudijo/:foodId")
+        app
+            .route("/csudijo/:foodId")
             .get((req, res, next) => {
             console.log(`Request type ${req.method} from: ${req.originalUrl} time: ${new Date().toLocaleTimeString()}`);
             next();
