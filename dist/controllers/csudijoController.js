@@ -45,7 +45,11 @@ class CsudijoController {
         if (req.params.page) {
             page = parseInt(req.params.page, 10) - 1;
         }
-        mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).skip(page * perPage).limit(perPage)
+        mongooseCsudijo
+            .find({})
+            .sort({ numberOfVote: "desc" })
+            .skip(page * perPage)
+            .limit(perPage)
             .exec((err, foods) => {
             if (err) {
                 res.send(err);
@@ -56,7 +60,11 @@ class CsudijoController {
         });
     }
     getTopFoods(req, res) {
-        mongooseCsudijo.find({}).sort({ numberOfVote: "desc" }).limit(1).exec((err, food) => {
+        mongooseCsudijo
+            .find({})
+            .sort({ numberOfVote: "desc" })
+            .limit(1)
+            .exec((err, food) => {
             if (err) {
                 res.send(err);
             }
@@ -103,7 +111,7 @@ class CsudijoController {
         });
     }
     deleteFood(req, res) {
-        mongooseCsudijo.deleteOne({ _id: req.params.foodId }, (err) => {
+        mongooseCsudijo.deleteOne({ _id: req.params.foodId }, err => {
             if (err) {
                 res.send(err);
             }

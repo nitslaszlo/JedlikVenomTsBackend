@@ -7,70 +7,68 @@ import { CrmRoutes } from "./routes/crmRoutes";
 import { CsudijoRoutes } from "./routes/csudijoRoutes";
 
 class App {
+  public app: express.Application;
+  public crmRoutePrv: CrmRoutes = new CrmRoutes();
+  public csudijoRoutePrv: CsudijoRoutes = new CsudijoRoutes();
+  public mongoUrl = "mongodb://localhost/CRMdb";
+  // URL with auth
+  // public mongoUrl: string = 'mongodb://nits:pwd123@localhost:27017/CRMdb';
 
-    public app: express.Application;
-    public crmRoutePrv: CrmRoutes = new CrmRoutes();
-    public csudijoRoutePrv: CsudijoRoutes = new CsudijoRoutes();
-    public mongoUrl = "mongodb://localhost/CRMdb";
-    // URL with auth
-    // public mongoUrl: string = 'mongodb://nits:pwd123@localhost:27017/CRMdb';
+  constructor() {
+    this.app = express();
+    this.expressConfig();
+    this.crmRoutePrv.routes(this.app);
+    this.csudijoRoutePrv.routes(this.app);
+    this.mongoSetup();
+  }
 
-    constructor() {
-        this.app = express();
-        this.expressConfig();
-        this.crmRoutePrv.routes(this.app);
-        this.csudijoRoutePrv.routes(this.app);
-        this.mongoSetup();
-    }
+  private expressConfig(): void {
+    // Ha szeretnéd vezérelni, hogy a backend API-t milyen ip-ről érheti el a frontend alkalmazás:
+    // ============================================================================================
+    // Állítsad be a "withCredentials: true" opciót a frontend oldalon is (CsudijoModule.ts)
+    // Vegyed ki a megjegyzésből a következő sorokat:
+    // const whitelist = ["http://localhost:8080", "http://127.0.0.1:8080", "http://192.168.1.68:8080"];
+    // const corsOptions: CorsOptions = {
+    //     origin: (origin, callback) => {
+    //         // console.log(`origin ${origin}`);
+    //         if (whitelist.indexOf(origin) !== -1 || !origin) {
+    //             callback(null, true);
+    //         } else {
+    //             callback(new Error("Not allowed by CORS!!!"), false);
+    //         }
+    //     },
+    //     credentials: true
+    // };
+    // this.app.use(cors(corsOptions));
+    this.app.use(cors()); // ezt mehet majd megjegyzésbe
+    this.app.use(bodyParser.json());
+    this.app.use(bodyParser.urlencoded({ extended: false }));
+    // serving static files
+    this.app.use(express.static("public"));
 
-    private expressConfig(): void {
-        // Ha szeretnéd vezérelni, hogy a backend API-t milyen ip-ről érheti el a frontend alkalmazás:
-        // ============================================================================================
-        // Állítsad be a "withCredentials: true" opciót a frontend oldalon is (CsudijoModule.ts)
-        // Vegyed ki a megjegyzésből a következő sorokat:
-        // const whitelist = ["http://localhost:8080", "http://127.0.0.1:8080", "http://192.168.1.68:8080"];
-        // const corsOptions: CorsOptions = {
-        //     origin: (origin, callback) => {
-        //         // console.log(`origin ${origin}`);
-        //         if (whitelist.indexOf(origin) !== -1 || !origin) {
-        //             callback(null, true);
-        //         } else {
-        //             callback(new Error("Not allowed by CORS!!!"), false);
-        //         }
-        //     },
-        //     credentials: true
-        // };
-        // this.app.use(cors(corsOptions));
-        this.app.use(cors()); // ezt mehet majd megjegyzésbe
-        this.app.use(bodyParser.json());
-        this.app.use(bodyParser.urlencoded({ extended: false }));
-        // serving static files
-        this.app.use(express.static("public"));
+    // this.app.use((req, res, next) => {
+    //     res.header("Access-Control-Allow-Origin", "*");
+    //     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+    // tslint:disable-next-line: max-line-length
+    //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Authorization, Content-Length, Content-Type, Accept");
+    //     next();
+    // });
+  }
 
-        // this.app.use((req, res, next) => {
-        //     res.header("Access-Control-Allow-Origin", "*");
-        //     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-        // tslint:disable-next-line: max-line-length
-        //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Authorization, Content-Length, Content-Type, Accept");
-        //     next();
-        // });
-    }
+  private mongoSetup(): void {
+    // Doc:
+    // https://mongoosejs.com/docs/connections.html
 
-    private mongoSetup(): void {
-        // Doc:
-        // https://mongoosejs.com/docs/connections.html
+    const options: mongoose.ConnectionOptions = {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true
+    };
 
-        const options: mongoose.ConnectionOptions = {
-            useCreateIndex: true,
-            useFindAndModify: false,
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        };
-
-        require("mongoose").Promise = global.Promise;
-        mongoose.connect(this.mongoUrl, options).catch((error) => console.error(error));
-    }
-
+    require("mongoose").Promise = global.Promise;
+    mongoose.connect(this.mongoUrl, options).catch(error => console.error(error));
+  }
 }
 
 export default new App().app;

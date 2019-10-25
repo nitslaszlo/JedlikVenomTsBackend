@@ -26,13 +26,13 @@ class App {
     }
     mongoSetup() {
         const options = {
+            useNewUrlParser: true,
             useCreateIndex: true,
             useFindAndModify: false,
-            useNewUrlParser: true,
             useUnifiedTopology: true
         };
         require("mongoose").Promise = global.Promise;
-        mongoose_1.default.connect(this.mongoUrl, options).catch((error) => console.error(error));
+        mongoose_1.default.connect(this.mongoUrl, options).catch(error => console.error(error));
     }
 }
 exports.default = new App().app;
