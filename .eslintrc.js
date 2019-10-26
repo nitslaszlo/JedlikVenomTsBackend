@@ -27,16 +27,6 @@ module.exports = {
       "error",
       "never"
     ],
-    "no-console": ["error", { allow: ["warn", "error", "log"] }],
-    "@typescript-eslint/explicit-function-return-type": ["warn", {
-      "allowExpressions": true
-    }
-    ],
-    "@typescript-eslint/no-explicit-any": 0,
-    "@typescript-eslint/no-unused-vars": ["error", {
-      "vars": "all",
-      "args": "after-used",
-      "ignoreRestSiblings": false
-    }]
+    "no-console": ["error", { allow: ["warn", "error", "log"] }]
   }
 };
