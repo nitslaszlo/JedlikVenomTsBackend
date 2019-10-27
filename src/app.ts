@@ -1,5 +1,5 @@
 import bodyParser from "body-parser";
-import cors from "cors";
+// import cors from "cors";
 // import cors, { CorsOptions } from "cors";
 import express from "express";
 import mongoose from "mongoose";
@@ -40,9 +40,26 @@ class App {
     //     credentials: true
     // };
     // this.app.use(cors(corsOptions));
-    this.app.use(cors()); // ezt mehet majd megjegyzésbe
+
+    // this.app.use(cors()); // ezt mehet majd megjegyzésbe
 
     this.app.use(bodyParser.json());
+
+    // Cors kezelés corse modul nélkül:
+    // ==================================
+    this.app.use((req, res, next) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      // res.header("Access-Control-Allow-Origin", "http://192.168.1.68:8080");
+      // Ha "Access-Control-Allow-Credentials", "true", akkor az origin nem lehet "*"!
+      // res.header("Access-Control-Allow-Credentials", "true");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+      if (req.method === "OPTIONS") {
+        res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
+        return res.status(200).json({});
+      }
+      next();
+    });
+
     this.app.use(bodyParser.urlencoded({ extended: false }));
     // serving static files
     this.app.use(express.static("public"));

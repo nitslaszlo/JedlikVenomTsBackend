@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const body_parser_1 = tslib_1.__importDefault(require("body-parser"));
-const cors_1 = tslib_1.__importDefault(require("cors"));
 const express_1 = tslib_1.__importDefault(require("express"));
 const mongoose_1 = tslib_1.__importDefault(require("mongoose"));
 const crmRoutes_1 = require("./routes/crmRoutes");
@@ -19,8 +18,16 @@ class App {
         this.mongoSetup();
     }
     expressConfig() {
-        this.app.use(cors_1.default());
         this.app.use(body_parser_1.default.json());
+        this.app.use((req, res, next) => {
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+            if (req.method === "OPTIONS") {
+                res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
+                return res.status(200).json({});
+            }
+            next();
+        });
         this.app.use(body_parser_1.default.urlencoded({ extended: false }));
         this.app.use(express_1.default.static("public"));
     }
