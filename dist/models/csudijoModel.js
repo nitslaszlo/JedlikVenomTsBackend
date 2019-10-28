@@ -27,12 +27,10 @@ exports.csudijoSchema = new mongoose_1.default.Schema({
             },
             msg: "Nem megfelelő az URL formátuma!"
         },
-        type: String,
-        unique: true
+        type: String
     },
     description: {
-        type: String,
-        unique: true
+        type: String
     },
     createdDate: {
         default: Date.now,
