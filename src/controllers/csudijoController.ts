@@ -47,7 +47,7 @@ export class CsudijoController {
     }
     mongooseCsudijo
       .find({})
-      .sort({ numberOfVote: "desc" })
+      .sort({ numberOfVote: "desc", foodName: "asc" })
       .skip(page * perPage)
       .limit(perPage)
       .exec((err, foods) => {
