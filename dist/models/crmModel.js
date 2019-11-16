@@ -22,7 +22,7 @@ exports.contactSchema = new mongoose_1.default.Schema({
         minlength: 3,
         maxlength: 10
     },
-    created_date: {
+    createdDate: {
         default: Date.now,
         type: Date
     },

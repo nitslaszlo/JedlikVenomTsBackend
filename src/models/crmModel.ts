@@ -17,8 +17,8 @@ export const contactSchema = new mongoose.Schema(
       max: 65,
       min: 18,
       type: Number,
-      get: (v: any) => Math.round(v),
-      set: (v: any) => Math.round(v)
+      get: (v: number) => Math.round(v),
+      set: (v: number) => Math.round(v)
     },
     company: {
       default: "JEDLIK",
@@ -27,7 +27,7 @@ export const contactSchema = new mongoose.Schema(
       minlength: 3,
       maxlength: 10
     },
-    created_date: {
+    createdDate: {
       default: Date.now,
       type: Date
     },
