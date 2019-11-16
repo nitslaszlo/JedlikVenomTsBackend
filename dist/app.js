@@ -33,9 +33,9 @@ class App {
     }
     mongoSetup() {
         const options = {
+            useNewUrlParser: true,
             useCreateIndex: true,
             useFindAndModify: false,
-            useNewUrlParser: true,
             useUnifiedTopology: true
         };
         require("mongoose").Promise = global.Promise;

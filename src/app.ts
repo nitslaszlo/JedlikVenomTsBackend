@@ -40,9 +40,7 @@ class App {
     //     credentials: true
     // };
     // this.app.use(cors(corsOptions));
-
     // this.app.use(cors()); // ezt mehet majd megjegyzésbe
-
     this.app.use(bodyParser.json());
 
     // Cors kezelés corse modul nélkül:
@@ -70,9 +68,9 @@ class App {
     // https://mongoosejs.com/docs/connections.html
 
     const options: mongoose.ConnectionOptions = {
+      useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
-      useNewUrlParser: true,
       useUnifiedTopology: true
     };
 
