@@ -20,7 +20,7 @@ export const csudijoSchema = new mongoose.Schema(
       get: (v: number) => Math.round(v),
       set: (v: number) => Math.round(v)
     },
-    created_date: {
+    createdDate: {
       default: Date.now,
       type: Date
     }
