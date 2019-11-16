@@ -17,7 +17,7 @@ const PORT: number = 3000;
 // };
 
 // simple HTTP:
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Express server listening on port: ${PORT}, if you get an error, check your mongoDB connection.`);
 });
 
