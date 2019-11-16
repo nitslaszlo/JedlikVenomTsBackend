@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
 import mongoose from "mongoose";
+import { Request, Response } from "express";
 import { csudijoSchema } from "../models/csudijoModel";
 
 const mongooseCsudijo = mongoose.model("Csudijo", csudijoSchema);
