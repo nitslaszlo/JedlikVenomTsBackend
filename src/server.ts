@@ -2,7 +2,7 @@
 // import https from "https"; // for HTTPS
 import app from "./app";
 
-const PORT = 3000;
+const PORT: number = 3000;
 
 // for HTTPS:
 // Download and install OpenSSL:
