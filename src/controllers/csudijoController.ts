@@ -74,8 +74,10 @@ export class CsudijoController {
               if (error) {
                 res.send(error);
               } else {
+                // 9. feladat:
                 // adatforgalom minimalizálása feladat
-                res.json(foods.map((a: any) => a.foodName)); // csak az ételek nevét küldjük át
+                // csak az ételek nevét küldjük át
+                res.json(foods.map((a: any) => a.foodName));
               }
             });
           } else {
