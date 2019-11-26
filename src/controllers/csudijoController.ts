@@ -41,6 +41,8 @@ export class CsudijoController {
               if (error) {
                 res.send(error);
               } else {
+                // 9. feladat:
+                // Az ételek összes adata átkerül, nekünk elegendőek az ételek nevei
                 res.json(foods);
               }
             });
