@@ -10,7 +10,7 @@ class App {
   public app: express.Application;
   public crmRoutePrv: CrmRoutes = new CrmRoutes();
   public csudijoRoutePrv: CsudijoRoutes = new CsudijoRoutes();
-  public mongoUrl: string = "mongodb://localhost/CRMdb";
+  public mongoUrl: string = "";
   // URL with auth
   // public mongoUrl: string = 'mongodb://nits:pwd123@localhost:27017/CRMdb';
 
@@ -75,6 +75,7 @@ class App {
       useUnifiedTopology: true
     };
 
+    this.mongoUrl = process.env.MONGODB_URL || "mongodb://localhost/CRMdb";
     require("mongoose").Promise = global.Promise;
     mongoose.connect(this.mongoUrl, options).catch(error => console.error(error));
   }
