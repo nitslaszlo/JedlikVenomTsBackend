@@ -51,5 +51,8 @@
     "spellright.documentTypes": [
         "latex"
     ],
-    "terminal.integrated.rendererType": "dom"
+    "terminal.integrated.rendererType": "dom",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
 }
