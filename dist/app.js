@@ -10,7 +10,7 @@ class App {
     constructor() {
         this.crmRoutePrv = new crmRoutes_1.CrmRoutes();
         this.csudijoRoutePrv = new csudijoRoutes_1.CsudijoRoutes();
-        this.mongoUrl = "mongodb://localhost/CRMdb";
+        this.mongoUrl = "";
         this.app = express_1.default();
         this.expressConfig();
         this.crmRoutePrv.routes(this.app);
@@ -39,6 +39,7 @@ class App {
             useFindAndModify: false,
             useUnifiedTopology: true
         };
+        this.mongoUrl = process.env.MONGODB_URL || "mongodb://localhos/CRMdb";
         require("mongoose").Promise = global.Promise;
         mongoose_1.default.connect(this.mongoUrl, options).catch(error => console.error(error));
     }
