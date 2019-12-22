@@ -39,7 +39,7 @@ class App {
             useFindAndModify: false,
             useUnifiedTopology: true
         };
-        this.mongoUrl = process.env.MONGODB_URL || "mongodb://localhost/CRMdb";
+        this.mongoUrl = process.env.MONGODB_URL || "mongodb://localhos/CRMdb";
         require("mongoose").Promise = global.Promise;
         mongoose_1.default.connect(this.mongoUrl, options).catch(error => console.error(error));
     }
