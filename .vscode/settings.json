@@ -3,13 +3,9 @@
     "extensions.ignoreRecommendations": true,
     "eslint.alwaysShowStatus": true,
     "eslint.enable": true,
-    "eslint.autoFixOnSave": true,
     "eslint.validate": [
         "javascript",
-        {
-            "language": "typescript",
-            "autoFix": true
-        }
+        "typescript"
     ],
     "editor.formatOnSave": true,
     "[javascript]": {
@@ -51,5 +47,8 @@
     "spellright.documentTypes": [
         "latex"
     ],
-    "terminal.integrated.rendererType": "dom"
+    "terminal.integrated.rendererType": "dom",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
 }
