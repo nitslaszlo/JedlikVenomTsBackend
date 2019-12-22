@@ -13,7 +13,7 @@
       },
       {
          "type": "npm",
-         "script": "build",
+         "script": "compile",
          "group": {
             "kind": "build",
             "isDefault": true
