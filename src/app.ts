@@ -75,7 +75,7 @@ class App {
       useUnifiedTopology: true
     };
 
-    this.mongoUrl = process.env.MONGODB_URL || "mongodb://localhos/CRMdb";
+    this.mongoUrl = process.env.MONGODB_URL || "mongodb://localhost/CRMdb";
     require("mongoose").Promise = global.Promise;
     mongoose.connect(this.mongoUrl, options).catch(error => console.error(error));
   }
