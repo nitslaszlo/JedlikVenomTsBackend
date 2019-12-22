@@ -11,6 +11,9 @@
     "prod": "npm run build && npm run start",
     "kill": "taskkill /im node.exe /F"
   },
+  "engines": {
+    "node": "10.x"
+  },
   "author": "Nit László",
   "license": "MIT",
   "repository": {
