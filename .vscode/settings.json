@@ -33,7 +33,7 @@
         "**/tsconfig.json": false,
         "**/tslint.json": false,
         "**/package-lock.json": true,
-        "**/dist": true,
+        "**/dist": false,
         "**/public": true,
         "**/node_modules": true,
         "**/*.js.map": true,
