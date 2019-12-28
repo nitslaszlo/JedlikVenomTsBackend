@@ -1,0 +1,1 @@
+"C:\Program Files\MongoDB\Server\4.2\bin\mongoimport.exe"  --uri "mongodb+srv://nits:WlanPwdAtHome@cluster0-gxlzd.mongodb.net/CRMdb" -c CsudijoFoodCollection --drop --file data.json
