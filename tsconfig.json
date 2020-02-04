@@ -4,7 +4,6 @@
         "esModuleInterop": true,
         "strict": true,
         "pretty": true,
-        "watch": true,
         "allowJs": true,
         "sourceMap": true,
         "removeComments": true,
