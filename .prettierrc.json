@@ -1,5 +1,10 @@
 {
+  "semi": true,
   "printWidth": 150,
+  "tabWidth": 2,
   "eslintIntegration": true,
-  "stylelintIntegration": true
+  "stylelintIntegration": false,
+  "endOfLine": "auto",
+  "arrowParens": "avoid",
+  "trailingComma": "none"
 }
