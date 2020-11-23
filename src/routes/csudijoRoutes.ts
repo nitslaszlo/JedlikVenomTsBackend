@@ -34,7 +34,6 @@ export class CsudijoRoutes {
       next();
     }, this.csudijoController.getPageOfFoods);
 
-    // Contact detail
     app
       .route("/csudijo/:foodId")
       // get specific food, pl.: GET http://localhost:3000/csudijo/5d7a971dd9740e07b8bc725c
