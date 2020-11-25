@@ -1,3 +1,4 @@
+// Dokumentáció: https://restful-api-node-typescript.books.dalenguyen.me/en/latest/introduction.html
 import mongoose from "mongoose";
 
 // Doc:
