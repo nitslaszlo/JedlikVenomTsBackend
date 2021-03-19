@@ -1,4 +1,4 @@
-import bodyParser from "body-parser";
+// import bodyParser from "body-parser";
 // import cors from "cors";
 // import cors, { CorsOptions } from "cors";
 import express from "express";
@@ -41,7 +41,7 @@ class App {
     // };
     // this.app.use(cors(corsOptions));
     // this.app.use(cors()); // ezt mehet majd megjegyzésbe
-    this.app.use(bodyParser.json());
+    this.app.use(express.json());
 
     // Cors kezelés corse modul nélkül:
     // ==================================
@@ -59,7 +59,7 @@ class App {
       next();
     });
 
-    this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(express.urlencoded({ extended: false }));
     // serving static files
     this.app.use(express.static("public"));
   }
