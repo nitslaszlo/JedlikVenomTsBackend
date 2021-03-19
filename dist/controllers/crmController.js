@@ -44,7 +44,11 @@ class ContactController {
         });
     }
     deleteContact(req, res) {
-        mongooseContact.deleteOne({ _id: req.params.contactId }, err => {
+        const deleteOptions = {
+            new: true,
+            runValidators: true
+        };
+        mongooseContact.deleteOne({ _id: req.params.contactId }, deleteOptions, (err) => {
             if (err) {
                 res.send(err);
             }

@@ -7,7 +7,7 @@ const mongooseCsudijo = mongoose.model("Csudijo", csudijoSchema);
 export class CsudijoController {
   public addNewFood(req: Request, res: Response): void {
     const newFood = new mongooseCsudijo(req.body);
-    newFood.save((err, food) => {
+    newFood.save((err: any, food: any) => {
       if (err) {
         res.send(err);
       } else {
@@ -50,7 +50,7 @@ export class CsudijoController {
       .sort({ numberOfVote: "desc", foodName: "asc" })
       .skip(page * perPage)
       .limit(perPage)
-      .exec((err, foods) => {
+      .exec((err: any, foods: any) => {
         if (err) {
           res.send(err);
         } else {
@@ -64,7 +64,7 @@ export class CsudijoController {
       .find({})
       .sort({ numberOfVote: "desc" })
       .limit(1)
-      .exec((err, food) => {
+      .exec((err: any, food: any) => {
         if (err) {
           res.send(err);
         } else {
@@ -89,7 +89,7 @@ export class CsudijoController {
   }
 
   public getFoodWithID(req: Request, res: Response): void {
-    mongooseCsudijo.findById(req.params.foodId, (err, food) => {
+    mongooseCsudijo.findById(req.params.foodId, (err: any, food: any) => {
       if (err) {
         res.send(err);
       } else {
@@ -99,7 +99,7 @@ export class CsudijoController {
   }
 
   public updateFood(req: Request, res: Response): void {
-    const updateOptions: mongoose.QueryFindOneAndUpdateOptions = {
+    const updateOptions: mongoose.QueryOptions = {
       new: true, // return the modified document
       runValidators: true // runs update validators on this command
     };
@@ -113,7 +113,11 @@ export class CsudijoController {
   }
 
   public deleteFood(req: Request, res: Response): void {
-    mongooseCsudijo.deleteOne({ _id: req.params.foodId }, err => {
+    const deleteOptions: mongoose.QueryOptions = {
+      new: true, // return the modified document
+      runValidators: true // runs update validators on this command
+    };
+    mongooseCsudijo.deleteOne({ _id: req.params.foodId }, deleteOptions, (err: any) => {
       if (err) {
         res.send(err);
       } else {

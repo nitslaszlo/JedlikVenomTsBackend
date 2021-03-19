@@ -112,7 +112,11 @@ class CsudijoController {
         });
     }
     deleteFood(req, res) {
-        mongooseCsudijo.deleteOne({ _id: req.params.foodId }, err => {
+        const deleteOptions = {
+            new: true,
+            runValidators: true
+        };
+        mongooseCsudijo.deleteOne({ _id: req.params.foodId }, deleteOptions, (err) => {
             if (err) {
                 res.send(err);
             }
