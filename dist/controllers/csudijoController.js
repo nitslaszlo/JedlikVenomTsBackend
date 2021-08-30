@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CsudijoController = void 0;
 const tslib_1 = require("tslib");
-const mongoose_1 = tslib_1.__importDefault(require("mongoose"));
+const mongoose_1 = (0, tslib_1.__importDefault)(require("mongoose"));
 const csudijoModel_1 = require("../models/csudijoModel");
 const mongooseCsudijo = mongoose_1.default.model("Csudijo", csudijoModel_1.csudijoSchema);
 class CsudijoController {

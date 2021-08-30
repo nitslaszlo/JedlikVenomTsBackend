@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const express_1 = tslib_1.__importDefault(require("express"));
-const mongoose_1 = tslib_1.__importDefault(require("mongoose"));
+const express_1 = (0, tslib_1.__importDefault)(require("express"));
+const mongoose_1 = (0, tslib_1.__importDefault)(require("mongoose"));
 const crmRoutes_1 = require("./routes/crmRoutes");
 const csudijoRoutes_1 = require("./routes/csudijoRoutes");
 class App {
@@ -10,7 +10,7 @@ class App {
         this.crmRoutePrv = new crmRoutes_1.CrmRoutes();
         this.csudijoRoutePrv = new csudijoRoutes_1.CsudijoRoutes();
         this.mongoUrl = "";
-        this.app = express_1.default();
+        this.app = (0, express_1.default)();
         this.expressConfig();
         this.crmRoutePrv.routes(this.app);
         this.csudijoRoutePrv.routes(this.app);
